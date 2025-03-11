@@ -3,68 +3,80 @@
 <title> Registration Form </title>
 </head>
 <body>
-<h1> Registration Form</h1>
-<form>
- <label for="fname">First name:</label>
-  <input type="text" name="fname" value=""><br><br>
+    <table border="1">
+        <form>
+            <caption>Registration Form</caption>
+        <tr>
+            <td> <label for="fname">First name:</label></td>
+            <td>   <input type="text" name="fname" value=""></td>
+        </tr>
+        <tr>
+            <td>  <label for="lname">Last name:</label></td>
+            <td> <input type="text" name="lname" value=""></td>
+        </tr>
+        <tr>
+            <td><label for="email">Email: </label></td>
+            <td> <input type="email" name="email" value=""></td>
+        </tr>
+        <tr>
+            <td><label for="password">Password:</label></td>
+            <td><input type="password" name="password" value=""></td>
+        </tr>
+        <tr>
+            <td><label for="gender">Gender:</label><br></td>
+            <td><input type="radio"  name="gender" value="male">
+                <label for="male">Male</label><br>
+            
+              <input type="radio"  name="gender" value="female">
+              <label for="male">Female</label><br>
+            
+             <input type="radio"  name="gender" value="others">
+              <label for="male">Others</label></td>
+        </tr>
+        <tr>
+            <td><label for="skill">Skill:</label></td>
+            <td><input type="checkbox"  name="skill1" value="programming">
+                <label for="skill1"> Programing</label><br>
+             
+                <input type="checkbox"  name="skill2" value="group work">
+                <label for="skill2"> Team Work</label><br>
+                 
+                <input type="checkbox"  name="skill3" value="html">
+                <label for="skill3"> HTML</label></td>
+        </tr>
+        <tr>
+            <td><label for="address">Address:</label></td>
+            <td><input type="text area" name="adress" value=""></td>
+        </tr>
+        <tr>
+            <td><label for="department">Department:</label></td>
+            <td><select name="department" id="department">
+                <option value=""></option>
+                <option value="cse">CSE</option>
+                <option value="eee">EEE</option>
+                <option value="bba">BBA</option>
+                <option value="architecture">ARCHITECTURE</option>
+              </select></td>
+        </tr>
+        <tr>
+            <td><label for="date">Date of Birth:</label></td>
+            <td><input type="date" name="date" value=""></td>
+        </tr>
+        <tr>
+            <td><label for="image">Image:</label></td>
+            <td><input type="file" name="image" value=""></td>
+        </tr>
+        <tr>
+            <td> <input type="submit" value="Submit"></td>
+            <td><input type="reset" value="Reset"></td>
+            <td><input type="reset" value="button"></td>
 
-  <label for="lname">Last name:</label>
-  <input type="text" name="lname" value=""><br><br>
+        </tr>
+        
+        </form>
+        
 
-<label for="email">Email: </label>
-  <input type="email" name="email" value=""><br><br>
+    </table>
 
-<label for="password">Password:</label>
-  <input type="password" name="password" value=""><br><br>
-
-<label for="gender">Gender:</label><br>
-
-    <input type="radio"  name="gender" value="male">
-    <label for="male">Male</label><br>
-
-  <input type="radio"  name="gender" value="female">
-  <label for="male">Female</label><br>
-
- <input type="radio"  name="gender" value="others">
-  <label for="male">Others</label><br><br>
-
-
-<label for="skill">Skill:</label><br>
-
-   <input type="checkbox"  name="skill1" value="programming">
-   <label for="skill1"> Programing</label><br>
-
-   <input type="checkbox"  name="skill2" value="group work">
-   <label for="skill2"> Team Work</label><br>
-    
-   <input type="checkbox"  name="skill3" value="html">
-   <label for="skill3"> HTML</label><br><br>
-
-
-<label for="address">Address:</label>
-<input type="text area" name="adress" value=""><br><br>
-
-<label for="department">Department:</label>
-<select name="department" id="department">
-  <option value=""></option>
-  <option value="cse">CSE</option>
-  <option value="eee">EEE</option>
-  <option value="bba">BBA</option>
-  <option value="architecture">ARCHITECTURE</option>
-</select><br><br>
-
-<label for="date">Date of Birth:</label>
-<input type="date" name="date" value=""><br><br>
-
-<label for="image">Image:</label>
-<input type="file" name="image" value=""><br><br>
-
- <input type="submit" value="Submit">
- <input type="reset" value="Reset">
-
-
-
-
-</form>
 </body>
 </html>

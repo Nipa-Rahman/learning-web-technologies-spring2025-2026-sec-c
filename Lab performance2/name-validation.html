@@ -1,0 +1,49 @@
+<html lang="en">
+<head>
+    <title>Name Validation</title>
+</head>
+<body>
+    <form onsubmit="return validateEmailForm()">
+        <label for="email">Email:</label>
+        <input type="text" id="email" name="email">
+        <span class="tooltip">
+            <button type="button" class="icon-button" onclick="toggleHint()">ℹ️</button>
+            <span id="hintText" class="tooltiptext">Hint: sample@example.com</span>
+        </span>
+        <br><br>
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        function testEmail(email) {
+            let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            if (email.trim() === "") {
+                return "Email cannot be empty.";
+            }
+            if (!emailPattern.test(email)) {
+                return "Must be a valid email address (e.g., anything@example.com).";
+            }
+            return "Valid Email!";
+        }
+
+        function validateEmailForm() {
+            let email = document.getElementById("email").value;
+            let result = testEmail(email);
+
+            if (result !== "Valid Email!") {
+                alert(result);
+                return false;
+            }
+            return true;
+        }
+
+        function toggleHint() {
+            let hintText = document.getElementById("hintText");
+            hintText.style.display = (hintText.style.display === "none" || hintText.style.display === "") ? "block" : "none";
+        }
+    </script>
+
+</body>
+
+</html>

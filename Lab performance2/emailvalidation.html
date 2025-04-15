@@ -1,0 +1,48 @@
+<html lang="en">
+<head>
+    <title>Email Validation</title>
+</head>
+<body>
+    <form>
+        <form id="emailForm">
+            <label for="email">Email</label><br>
+            <input type="text" id="email" name="email">
+            <span class="tooltip">
+                <button type="button" id="hintButton">i</button>
+                <span id="hintText" class="tooltiptext">hint: sample@example.com</span>
+            </span>
+            <br><br>
+            <button type="submit">Submit</button>
+            <p id="errorMessage" class="error"></p>
+</form>
+
+
+
+
+    <script>
+        function validateEmail(email) {
+            let emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+            if (email.trim() === "") {
+                return "Email cannot be empty.";
+            }
+            if (!emailPattern.test(email)) {
+                return "Please enter a valid email address (e.g., sample@example.com).";
+            }
+            return "Valid Email!";
+        }
+
+        function validateForm() {
+            let email = document.getElementById("email").value;
+            let result = validateEmail(email);
+
+            if (result !== "Valid Email!") {
+                alert(result);
+                return false;
+            }
+            return true;
+        }
+    </script>
+
+</body>
+</html>

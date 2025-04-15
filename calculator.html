@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Calculator</title>
+</head>
+<body>
+
+  <table border="1" cellpadding="10" cellspacing="0" align="center">
+    <tr>
+      <td colspan="4" align="center"><h2>Calculator</h2></td>
+    </tr>
+    <tr>
+      <td colspan="4">
+        <input type="text" id="display" disabled size="20" style="text-align: right;">
+      </td>
+    </tr>
+    <tr>
+      <td><button onclick="press('7')">7</button></td>
+      <td><button onclick="press('8')">8</button></td>
+      <td><button onclick="press('9')">9</button></td>
+      <td><button onclick="press('/')">/</button></td>
+    </tr>
+    <tr>
+      <td><button onclick="press('4')">4</button></td>
+      <td><button onclick="press('5')">5</button></td>
+      <td><button onclick="press('6')">6</button></td>
+      <td><button onclick="press('*')">*</button></td>
+    </tr>
+    <tr>
+      <td><button onclick="press('1')">1</button></td>
+      <td><button onclick="press('2')">2</button></td>
+      <td><button onclick="press('3')">3</button></td>
+      <td><button onclick="press('-')">-</button></td>
+    </tr>
+    <tr>
+      <td><button onclick="press('0')">0</button></td>
+      <td><button onclick="clearDisplay()">C</button></td>
+      <td><button onclick="calculate()">=</button></td>
+      <td><button onclick="press('+')">+</button></td>
+    </tr>
+  </table>
+
+  <script>
+    let calculated = false; // Flag to track if calculation just happened
+  
+    function press(val) {
+      if (calculated) {
+        document.getElementById('display').value = ''; // Clear old result
+        calculated = false;
+      }
+      document.getElementById('display').value += val;
+    }
+  
+    function clearDisplay() {
+      document.getElementById('display').value = '';
+      calculated = false;
+  
+      // Remove result if exists
+      let result = document.getElementById('result');
+      if (result) {
+        result.remove();
+      }
+    }
+  
+    function calculate() {
+      let exp = document.getElementById('display').value;
+  
+      // Remove old result if exists
+      let oldResult = document.getElementById('result');
+      if (oldResult) {
+        oldResult.remove();
+      }
+  
+      let parts = exp.match(/(\d+)([\+\-\*\/])(\d+)/);
+  
+      if (!parts) {
+        showResult("Error");
+        return;
+      }
+  
+      let num1 = parseFloat(parts[1]);
+      let op = parts[2];
+      let num2 = parseFloat(parts[3]);
+      let result = 0;
+  
+      if (op === '+') result = num1 + num2;
+      else if (op === '-') result = num1 - num2;
+      else if (op === '*') result = num1 * num2;
+      else if (op === '/') result = num2 !== 0 ? num1 / num2 : 'Error';
+  
+      document.getElementById('display').value = result;
+      calculated = true; // Set flag so next input clears display
+      showResult("Result: " + result);
+    }
+  
+    function showResult(text) {
+      let div = document.createElement('div');
+      div.id = 'result';
+      div.style.textAlign = 'center';
+      div.style.marginTop = '10px';
+      div.style.fontWeight = 'bold';
+      div.innerText = text;
+  
+      document.body.appendChild(div);
+    }
+  </script>
+  
+
+</body>
+</html>
